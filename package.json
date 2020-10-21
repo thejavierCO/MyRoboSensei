@@ -1,0 +1,42 @@
+{
+  "name": "MyRoboSensei",
+  "version": "1.0.0",
+  "description": "Create my version of robosensei.net",
+  "main": "index.js",
+  "scripts": {
+    "build": "cross-env NODE_ENV=production webpack",
+    "dev": "webpack serve --env development"
+  },
+  "keywords": [],
+  "author": "javier Cruz Obispo (JCO)",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "babel-loader": "^8.1.0",
+    "cross-env": "^7.0.2",
+    "css-loader": "^5.0.0",
+    "file-loader": "^6.1.1",
+    "html-loader": "^1.3.2",
+    "html-webpack-plugin": "^4.5.0",
+    "mini-css-extract-plugin": "^1.1.1",
+    "monaco-editor-webpack-plugin": "^2.0.0",
+    "node-sass": "^4.14.1",
+    "sass-loader": "^10.0.3",
+    "serve": "^11.3.2",
+    "style-loader": "^2.0.0",
+    "svelte-loader": "^2.13.6",
+    "webpack": "^5.1.3",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "dependencies": {
+    "axios": "^0.20.0",
+    "blockly": "^3.20200924.3",
+    "marked": "^1.2.0",
+    "monaco-editor": "^0.21.2",
+    "sat": "^0.8.0",
+    "svelte": "^3.29.0"
+  }
+}
