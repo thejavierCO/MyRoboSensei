@@ -1,10 +1,16 @@
 import "./style.scss";
-// import * as monaco from "monaco-editor";
 import App from "./App.svelte";
 
-// new App({
-//     target:document.querySelector("body"),
-//     props:{
-//         init:"hola"
-//     }
+new App({
+    target:document.querySelector("body"),
+    props:{
+        init:"hola"
+    }
+})
+
+
+// monaco.editor.create(document.body,{
+//     value:"// insert data",
+//     language:"javascript",
+//     theme:"vs-dark"
 // })

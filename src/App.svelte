@@ -1,8 +1,10 @@
 <script>
-    // import {} from "svelte";
-    export let initddd;
+    import {onMount} from "svelte";
+    // import * as monaco from "monaco-editor";
+    export let init;
+    onMount(()=>console.log("is mount"))
 </script>
 
-<div id="data">{initddd}</div>
+<div id="data">{init}</div>
 
 <style></style>

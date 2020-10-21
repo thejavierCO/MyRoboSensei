@@ -1,19 +1,21 @@
-const path = require("path");
-const HWP  = require("html-webpack-plugin");
+const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const path = require("path");
+
+const HtmlWebpackPlugin  = require("html-webpack-plugin");
+
 const mode = process.env.NODE_ENV || 'development';
 const prod = mode === 'production';
-const MonacoWebpackPlugin = require('monaco-editor-webpack-plugin');
 
 module.exports = {
 	entry: {
 		bundle: ['./src/main.js']
 	},
 	resolve: {
-		alias: {
-			svelte: path.resolve(__dirname+'node_modules', 'svelte')
+		alias:{
+			svelte:path.resolve('node_modules','svelte')
 		},
-		extensions: ['*','.mjs', '.js', '.svelte'],
+		extensions: ["*" ,'.mjs' , '.js', '.svelte'],
 		mainFields: ['svelte', 'browser', 'module', 'main']
 	},
 	output: {
@@ -57,7 +59,7 @@ module.exports = {
             },
             {
                 test: /\.html$/i,
-                loader: ['html-loader',"svelte-loader"],
+                loader: 'html-loader',
 			},
 			{
 				test: /\.ttf$/,
@@ -70,7 +72,7 @@ module.exports = {
 		new MiniCssExtractPlugin({
 			filename: '[name].css'
         }),
-        new HWP({
+        new HtmlWebpackPlugin({
             inject: true,
             template: "./src/index.html",
             filename: "index.html"
