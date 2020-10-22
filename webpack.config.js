@@ -62,8 +62,15 @@ module.exports = {
                 loader: 'html-loader',
 			},
 			{
-				test: /\.ttf$/,
+				test: /\.(gif|png|jpg|ttf)$/,
 				use: ['file-loader']
+			},
+			{
+				test:/\.(ts|txt)$/,
+                exclude: /node_modules/,
+				use:{
+					loader:"raw-loader"
+				}
 			}
 		]
 	},

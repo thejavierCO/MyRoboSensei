@@ -1,16 +1,4 @@
-import "./style.scss";
-import App from "./App.svelte";
+import "./style/style.scss";
+import App from "./Components/App.svelte";
 
-new App({
-    target:document.querySelector("body"),
-    props:{
-        init:"hola"
-    }
-})
-
-
-// monaco.editor.create(document.body,{
-//     value:"// insert data",
-//     language:"javascript",
-//     theme:"vs-dark"
-// })
+new App({target:document.querySelector("body")})
