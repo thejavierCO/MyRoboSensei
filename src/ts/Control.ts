@@ -17,11 +17,22 @@ class Sensor {
     }
 }
 class Control {
-    name:string = "";
+    name:string;
     constructor(NameRobot:string) {
-        this.name = NameRobot;
+        this.name = NameRobot||"mike";
     }
-    delay = async (ms:number)=>new Promise(
-        r=> setTimeout(r,ms)
-    )
+    msg(...arg:[string]):any {
+        arg.map(e=> {
+            console.log(e);
+        });
+    }
+    delay = async (ms:number)=> {
+        this.msg("Espera "+this.name);
+        return new Promise(
+            r=> setTimeout(()=> {
+                this.msg("continua");
+                r();
+            },ms)
+        );
+    }
 }

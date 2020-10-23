@@ -9,5 +9,6 @@ declare class Sensor {
 declare class Control {
     name: string;
     constructor(NameRobot: string);
+    msg(...arg: [string]): any;
     delay: (ms: number) => Promise<unknown>;
 }

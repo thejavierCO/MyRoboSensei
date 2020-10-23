@@ -53,13 +53,26 @@ var Sensor = /** @class */ (function () {
 var Control = /** @class */ (function () {
     function Control(NameRobot) {
         var _this = this;
-        this.name = "";
         this.delay = function (ms) { return __awaiter(_this, void 0, void 0, function () {
+            var _this = this;
             return __generator(this, function (_a) {
-                return [2 /*return*/, new Promise(function (r) { return setTimeout(r, ms); })];
+                this.msg("Espera " + this.name);
+                return [2 /*return*/, new Promise(function (r) { return setTimeout(function () {
+                        _this.msg("continua");
+                        r();
+                    }, ms); })];
             });
         }); };
-        this.name = NameRobot;
+        this.name = NameRobot || "mike";
     }
+    Control.prototype.msg = function () {
+        var arg = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            arg[_i] = arguments[_i];
+        }
+        arg.map(function (e) {
+            console.log(e);
+        });
+    };
     return Control;
 }());
