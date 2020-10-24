@@ -249,14 +249,17 @@ class World{
                     this.on("mousemove",fx);
                 break;
                 case "ClickInEntity":
-                    this.on("click",(a,b,c)=>{
-                        console.log(a,b((a,b)=>{
-                            
-                        }),c)
+                    this.on("click",(a,b,c,d)=>{
+                        let {offsetX,offsetY} = d;
                     })
                 break;
                 default:
-                    this.canvas.addEventListener(type,(a)=>fx(this.Colicion,(a)=>this.getEntitys(a),this.ctx,a));
+                    this.canvas.addEventListener(type,(a)=>fx(
+                        this.Colicion,
+                        (a)=>this.getEntitys(a),
+                        this.ctx,
+                        a
+                    ));
             }
         }
     }
