@@ -7,9 +7,9 @@
     let setEvent = createEventDispatcher();
     import SetTag from "../tools/especialTag.svelte";
     let getCanvasConfig = ({detail:data})=>{
-        let {World} = Control;
-        let setW = new World(name,data,data.id);
-        setEvent("getWord",setW);
+        let {createWorld} = Control;
+        let world = new createWorld("2D",name);
+        setEvent("getWord",world(data));
     }
 </script>
 <SetTag id="worldID" 
