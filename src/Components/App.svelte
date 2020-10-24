@@ -1,39 +1,39 @@
 <script>
-    import Cfg from "../js/CreateWordClass";
-    import World from "./World2D/setWorld.svelte";
-    function cfg({detail:world}){
-        let {createEntity} = Cfg;
-        let Group = new createEntity("Obj","Testing");
-        let Pointer = Group([0,0],[
-            [0,0],
-            [30,0],
-            [30,30],
-            [0,30]
-        ],"red");
-        let Obj = Group([200,200],[
-            [0,5],
-            [1,4],
-            [2,3],
-            [1,2],
-            [2,1],
-            [3,1],
-            [4,2],
-            [5,3],
-            [4,4]
-        ],"blue");
+    // import Cfg from "../js/CreateWordClass";
+    // import World from "./World2D/setWorld.svelte";
+    // function cfg({detail:world}){
+        // let {createEntity} = Cfg;
+        // let Group = new createEntity("Obj","Testing");
+        // let Pointer = Group([0,0],[
+        //     [0,0],
+        //     [30,0],
+        //     [30,30],
+        //     [0,30]
+        // ],"red");
+        // let Obj = Group([200,200],[
+        //     [0,5],
+        //     [1,4],
+        //     [2,3],
+        //     [1,2],
+        //     [2,1],
+        //     [3,1],
+        //     [4,2],
+        //     [5,3],
+        //     [4,4]
+        // ],"blue");
 
-        Pointer.name = "Pointer";
-        Pointer.color="green";
-        Obj.name = "Obj";
-        console.log(Pointer.area);
-        world.color = "#fff";
-        world.Entity = Pointer;
-        world.Entity = Obj;
+        // Pointer.name = "Pointer";
+        // Pointer.color="green";
+        // Obj.name = "Obj";
+        // console.log(Pointer.area);
+        // world.color = "#fff";
+        // world.Entity = Pointer;
+        // world.Entity = Obj;
 
-        world.on("Colicion",(a)=>{
-            console.log(a);
-            world.color = "#000";
-        });
+        // world.on("Colicion",(a)=>{
+        //     console.log(a);
+        //     world.color = "#000";
+        // });
 
         // world.on("Hover",(a,b,c)=>{
         //     world.color = "#fff";
@@ -45,10 +45,10 @@
         //     console.log(c.isPointInPath(offsetX, offsetY));
         // });
 
-        world.on("ClickInEntity",(a,b,c)=>{
-            console.log(a,b,c)
-        })
-        world.render();
+        // world.on("ClickInEntity",(a,b,c)=>{
+        //     console.log(a,b,c)
+        // })
+        // world.render();
         // a.setColorBg("#fff");
         // let {EntityObj:Entity,Render} = Cfg;
         // let Pointer = new Entity("Pointer",[0,0],[
@@ -87,14 +87,14 @@
         //     }
         // }
         // view.loop();
-    }
+    // }
 </script>
 
-<World 
+<!-- <World 
 width="{900}" 
 height="{900}"
 on:getWord={cfg}
-/>
+/> -->
 
 <style>
 </style>

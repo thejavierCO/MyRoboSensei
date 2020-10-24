@@ -1,4 +1,7 @@
 import "./style/style.scss";
-import App from "./Components/App.svelte";
+import Cfg from "./js/CreateWordClass";
 
-new App({target:document.querySelector("body")})
+console.log(Cfg);
+// import App from "./Components/App.svelte";
+
+// new App({target:document.querySelector("body")})
