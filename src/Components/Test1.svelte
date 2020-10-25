@@ -1,0 +1,68 @@
+<script>
+    import ETag from "./tools/especialTag.svelte";
+    import Loader from "../js/PhaserLoad";
+    import {onMount,createEventDispatcher} from "svelte";
+    let {width=300,height=300} = $$restProps;
+    let Event = createEventDispatcher();
+    let control;
+    let loadTag = ({detail:{tag:a,query}})=>{
+        let {localName} = a;
+        a.width = width;
+        a.height = height;
+        control = new Loader(query,{
+            preload:()=>typeof $$restProps.preload === "function"?$$restProps.preload:Event("error",{error:{msg:"not defined preload"}}),
+            create:()=>typeof $$restProps.create === "function"?$$restProps.create:Event("error",{error:{msg:"not defined create"}}),
+            update:typeof $$restProps.update === "function"?$$restProps.update:(()=>{
+                Event("error",{error:{msg:"not defined update"}})
+                return ()=>{};
+            })
+        });
+        console.log(control);
+        // control
+        // .then(e=>{
+        //     console.log(e);
+        // })
+        // console.log(Phaser.Game(control));
+        // Event("load",test);
+    }
+    onMount(()=>{
+        // let data = new Loader(element,{
+        //     preload:()=>typeof $$restProps.preload === "function"?$$restProps.preload:Event("error",{error:{msg:"not defined preload"}}),
+        //     create:()=>typeof $$restProps.create === "function"?$$restProps.create:Event("error",{error:{msg:"not defined create"}}),
+        //     update:typeof $$restProps.update === "function"?$$restProps.update:(()=>{
+        //         Event("error",{error:{msg:"not defined update"}})
+        //         return ()=>{};
+        //     })()
+        // });
+        // data.then(e=>{
+        //     console.log(e);
+        // })
+        // let control = {
+        //     type:Phaser.AUTO,
+        //     parent:element,
+        //     physics:{
+        //         default:"arcade",
+        //         arcade:{
+        //             fps:30,
+        //             gravity:{
+        //                 x:300
+        //             }
+        //         }
+        //     },
+        //     scene:{
+        //         preload:()=>typeof $$restProps.preload === "function"?$$restProps.preload:Event("error",{error:{msg:"not defined preload"}}),
+        //         create:()=>typeof $$restProps.create === "function"?$$restProps.create:Event("error",{error:{msg:"not defined create"}}),
+        //         update:()=>typeof $$restProps.create === "function"?$$restProps.create:(()=>{
+        //             Event("error",{error:{msg:"not defined update"}})
+        //             return ()=>{};
+        //         })()
+        //     }
+        // }
+        // Event("load",control);
+    })
+</script>
+
+<ETag
+nameTag="game_load"
+on:LoadHTMLElement={loadTag}
+/>

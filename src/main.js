@@ -1,7 +1,5 @@
+import Phaser from "Phaser";
 import "./style/style.scss";
-import Cfg from "./js/CreateWordClass";
+import App from "./Components/Test1.svelte";
 
-console.log(Cfg);
-// import App from "./Components/App.svelte";
-
-// new App({target:document.querySelector("body")})
+new App({target:document.body});

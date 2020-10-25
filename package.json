@@ -6,7 +6,7 @@
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack",
     "dev": "webpack serve",
-    "Ctrl":"tsc -w ./src/ts/Control.ts --locale es -d true --allowJS false --outFile ./src/js/Control.js"
+    "Ctrl": "tsc -w ./src/ts/Control.ts --locale es -d true --allowJS false --outFile ./src/js/Control.js"
   },
   "keywords": [],
   "author": "javier Cruz Obispo (JCO)",
@@ -34,10 +34,13 @@
     "webpack-dev-server": "^3.11.0"
   },
   "dependencies": {
+    "@svgdotjs/svg.js": "^3.0.16",
     "axios": "^0.20.0",
     "blockly": "^3.20200924.3",
     "marked": "^1.2.0",
     "monaco-editor": "^0.21.2",
+    "phaser": "^3.24.1",
+    "pts": "^0.9.5",
     "sat": "^0.8.0",
     "svelte": "^3.29.0",
     "webpack-dev-middleware": "^3.7.2"

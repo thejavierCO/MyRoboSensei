@@ -1,44 +1,45 @@
-import SAT from "sat";
 
-class lib{
-    constructor(){
-        this._V = SAT.Vector;
-        this._P = SAT.Polygon;
-        this._R = SAT.Response;
-        this._C = {
-            PP:SAT.testPolygonPolygon,
-            PC:SAT.testPolygonCircle,
-            CP:SAT.testCirclePolygon,
-            CC:SAT.testCircleCircle
-        }
-    }
-    get R(){
-        return this._R;
-    }
-    set R(a){
-        if(typeof a === "boolean"){
-            return new this._R();
-        }
-    }
-    get P(){
-        return this._P;
-    }
-    set P(a){
-        return this._P;
-    }
-    get V(){
-        return this._V;
-    }
-    set V(a){
-        return this._V;
-    }
-    set C(a){
-        return this._C;
-    }
-    get C(){
-        return this._C;
-    }
-}
+// import SAT from "sat";
+
+// class lib{
+//     constructor(){
+//         this._V = SAT.Vector;
+//         this._P = SAT.Polygon;
+//         this._R = SAT.Response;
+//         this._C = {
+//             PP:SAT.testPolygonPolygon,
+//             PC:SAT.testPolygonCircle,
+//             CP:SAT.testCirclePolygon,
+//             CC:SAT.testCircleCircle
+//         }
+//     }
+//     get R(){
+//         return this._R;
+//     }
+//     set R(a){
+//         if(typeof a === "boolean"){
+//             return new this._R();
+//         }
+//     }
+//     get P(){
+//         return this._P;
+//     }
+//     set P(a){
+//         return this._P;
+//     }
+//     get V(){
+//         return this._V;
+//     }
+//     set V(a){
+//         return this._V;
+//     }
+//     set C(a){
+//         return this._C;
+//     }
+//     get C(){
+//         return this._C;
+//     }
+// }
 
 // class Entity extends lib{
 //     constructor(name="",posicion=[0,0]){

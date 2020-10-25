@@ -1,13 +1,13 @@
 <script>
+    import Loader from "../../js/getLoad";
     import {onMount,createEventDispatcher} from "svelte";
     const setEvent = createEventDispatcher();
     export let nameTag = "NoneNameTagMain";
-    export let id;
-    let tagID = id;
+    export let typeTag = "div";
     if(nameTag===""){
         nameTag = "NoneNameTagMain";
     }
-    const {class:className} = $$restProps;
+    const {id:tagID,class:className} = $$restProps;
     let getID = (typeof tagID === "string"?tagID:nameTag+"_id");
     let getClass = (typeof className === "string"?className:nameTag+"_class");
     onMount(()=>{
@@ -16,16 +16,26 @@
         let print = document.querySelector("#"+nameTag)
         print.id = nameTag+window[id];
         let getchild = print.querySelector("#"+getID+"."+getClass);
-        if(getchild===null){
-            print = print.querySelector("div").childNodes[0];
+        if(getchild!==null){
+            Loader(print,typeTag+"#"+getID+"."+getClass).then(e=>{
+                setEvent("LoadHTMLElement",e)
+            })
+            print = print.querySelector(typeTag).childNodes[0];
             print.id = getID;
             print.className = getClass;
             setEvent("mount",print);
         }else{
-            setEvent("mount",getchild);
+            Loader(print,typeTag+"#"+getID+"."+getClass).then(e=>{
+                setEvent("LoadHTMLElement",e)
+            })
+            let tag = document.createElement(typeTag);
+            tag.id = getID;
+            tag.className = getClass;
+            print.appendChild(tag)
+            setEvent("mount",print.querySelector(typeTag+"#"+getID+"."+getClass));
         }
     })
 </script>
 <div id="{nameTag}">
-    <slot name="contentTag"><div></div></slot>
+    <slot name="contentTag"></slot>
 </div>
