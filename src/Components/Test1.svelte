@@ -1,5 +1,6 @@
 <script>
     import ETag from "./tools/especialTag.svelte";
+    import Phaser from "Phaser";
     import Loader from "../js/PhaserLoad";
     import {onMount,createEventDispatcher} from "svelte";
     let {width=300,height=300} = $$restProps;
@@ -9,7 +10,7 @@
         let {localName} = a;
         a.width = width;
         a.height = height;
-        control = new Loader(query,{
+        control = new Loader(a,{
             preload:()=>typeof $$restProps.preload === "function"?$$restProps.preload:Event("error",{error:{msg:"not defined preload"}}),
             create:()=>typeof $$restProps.create === "function"?$$restProps.create:Event("error",{error:{msg:"not defined create"}}),
             update:typeof $$restProps.update === "function"?$$restProps.update:(()=>{
@@ -17,12 +18,12 @@
                 return ()=>{};
             })
         });
-        console.log(control);
-        // control
-        // .then(e=>{
-        //     console.log(e);
-        // })
-        // console.log(Phaser.Game(control));
+        if(/(canvas)/gi.test(localName)){
+            let {parentNode} = document.querySelector(query);
+            control.parent = parentNode;
+            control.canvas = a;
+        }
+        console.log([a],query);
         // Event("load",test);
     }
     onMount(()=>{
@@ -64,5 +65,6 @@
 
 <ETag
 nameTag="game_load"
+typeTag="canvas"
 on:LoadHTMLElement={loadTag}
 />

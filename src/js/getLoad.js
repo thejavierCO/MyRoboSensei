@@ -1,5 +1,5 @@
 
-let StringToArray = (a)=>{
+export let StringToArray = (a)=>{
     let result = [];
     if(typeof a === "string"){
         for (let i = 0; i < a.length; i++) {
@@ -10,7 +10,7 @@ let StringToArray = (a)=>{
     return result;
 }
 
-let ArrayToString = (a)=>{
+export let ArrayToString = (a)=>{
     let result = "";
     if(typeof a === "object"&&a.length>0){
         a.forEach(e => {
@@ -36,8 +36,7 @@ export default (posicion=document.body,query="",time_await=3000)=>new Promise((r
     let id,className;
     if(/(#)/g.test(query)){
         id = (StringToArray(query).filter(e=>!/(#)/g.test(e))).join("");
-    }
-    if(/(.)/g.test(id||query)){
+    }else if(/(.)/g.test(id||query)){
         className = StringToArray(id||query).filter(e=>!/(#)/g.test(e)).join("");
     }
     let setTag = document.createElement("div");

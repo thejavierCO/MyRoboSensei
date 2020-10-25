@@ -1,9 +1,8 @@
-import getLoad from "./getLoad";
+import getLoad , {StringToArray} from "./getLoad";
 export default class Control{
     constructor(id="content",scene=[]){
         this.config = {
-            type:Phaser.AUTO,
-            parent:id,
+            parent:StringToArray(id).filter(e=>!/(#)/.test(e)).join(""),
             physics:{
                 default:"arcade",
                 arcade:{
@@ -29,8 +28,10 @@ export default class Control{
                 let {parentNode} = document.querySelector(query);
                 data.parent = parentNode;
                 data.canvas = a;
+            }else{
+                data.parent = tag;
             }
             return data;
-        }).then(e=>({Game:Phaser.Game(e),Phaser}))
+        })
     }
 }
