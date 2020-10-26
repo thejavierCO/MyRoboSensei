@@ -1,5 +1,4 @@
 <script>
-    import Loader from "../../js/getLoad";
     import {onMount,createEventDispatcher} from "svelte";
     const setEvent = createEventDispatcher();
     export let nameTag = "NoneNameTagMain";
@@ -17,17 +16,11 @@
         print.id = nameTag+window[id];
         let getchild = print.querySelector("#"+getID+"."+getClass);
         if(getchild!==null){
-            Loader(print,typeTag+"#"+getID+"."+getClass).then(e=>{
-                setEvent("LoadHTMLElement",e)
-            })
             print = print.querySelector(typeTag).childNodes[0];
             print.id = getID;
             print.className = getClass;
             setEvent("mount",print);
         }else{
-            Loader(print,typeTag+"#"+getID+"."+getClass).then(e=>{
-                setEvent("LoadHTMLElement",e)
-            })
             let tag = document.createElement(typeTag);
             tag.id = getID;
             tag.className = getClass;

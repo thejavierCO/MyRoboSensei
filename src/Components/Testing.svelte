@@ -2,7 +2,7 @@
     import EspecialTag from "./tools/especialTag.svelte";
     import {onMount,createEventDispatcher} from "svelte";
     let setEvent = createEventDispatcher();
-    import Phaser from "phaser";
+    import {Game} from "phaser";
     export let width = 300;
     export let height = 300;
     export let title = "";
@@ -29,7 +29,7 @@
                 getEscenes = {
                     preload,
                     create,
-                    update
+                    update:update()
                 }
             }
             let config = {
@@ -41,6 +41,7 @@
                 physics: {
                     default: 'arcade',
                     arcade: {
+                        fps:30,
                         gravity: { y: 200 }
                     }
                 },
@@ -48,7 +49,7 @@
                 scene:getEscenes
             };
             title!==""?config.title = title:"";
-            console.log(Phaser.Game(config))
+            setEvent("GameLoad",new Game(config));
         }else{
             setEvent("error",{error:{mag:"require funcion setEscene"}})
         }
