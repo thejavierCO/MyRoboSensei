@@ -5,11 +5,12 @@ export default class Running extends Scene{
         super({key:"Run"});
     }
     preload(){
-        this.physics.add.world.setBounds(0,0,this.sys.game.config.width,this.sys.game.config.height);
-        this.physics.world.setBoundsCollision();
-        new Player(this,100,100,"logo");
+        this.matter.world.setBounds(0,0,this.sys.game.config.width,this.sys.game.config.height);
+        let cart = new Player(this,"cart");
+        console.log(cart)
     }
     create(){
+        this.input.enableDebug = true;
     }
     update(){
     }

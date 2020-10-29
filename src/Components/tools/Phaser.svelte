@@ -20,10 +20,24 @@
         width,
         height,
         physics: {
-            default: 'arcade',
+            default: 'matter',
+            matter: {
+                enableSleeping: true,
+                gravity: {
+                    y: 0
+                },
+                setBounds:true,
+                debug: {
+                    showBody: true,
+                    showStaticBody: true
+                }
+            },
             arcade: {
-                fps:30,
-                gravity: { y: 200 }
+                fps:25,
+                gravity: { 
+                    y: 0,
+                    x: 0 
+                }
             }
         },
         trasparent:true

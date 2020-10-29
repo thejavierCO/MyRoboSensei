@@ -37,6 +37,7 @@
     "@svgdotjs/svg.js": "^3.0.16",
     "axios": "^0.20.0",
     "blockly": "^3.20200924.3",
+    "js-sandbox": "^1.1.1",
     "marked": "^1.2.0",
     "monaco-editor": "^0.21.2",
     "phaser": "^3.24.1",

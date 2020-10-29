@@ -3,8 +3,10 @@ import run from "../Game/Scenes/run";
 import boot from "../Game/Scenes/boot"
 import PhaserSvelte from "./tools/Phaser.svelte";
 
-</script>
+// import Editor from "./Bases/App_editor.svelte";
 
+</script>
+<!-- <Editor></Editor> -->
 <PhaserSvelte
 width={900}
 height={900}

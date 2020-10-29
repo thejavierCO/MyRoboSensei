@@ -1,7 +1,9 @@
+import sandbox from "js-sandbox";
 export default class{
     constructor(editor={},tools={}){
         this.values = editor;
         this.tools = tools;
+        this.box = new sandbox()
     }
     Run(a=this.values){
         try{
@@ -11,10 +13,11 @@ export default class{
                 this.setResult(a.getValue(),this.tools)
                 .then(e=>{
                     console.warn("Run Code",e.length);
-                    return eval(e)
-                }).then(e=>{
+                    return this.box.execCode(e)
+                })
+                .then(e=>{
                     clearInterval(testingTime);
-                    console.warn("OK time:"+num);
+                    console.warn("OK time:"+(num*1/250));
                     typeof e !== "undefined"?
                     console.log("response",e)
                     :"undefined";})
@@ -44,11 +47,10 @@ export default class{
         return typeof a == "string"?
         [
             this.toString(b),
-            "(async ()=>{",
-            a,
-            "})()",
-            ".then(a=>a)",
-            ".catch(a=>{throw a})"
+            "let Runcode = async ()=>{",
+                a,
+            "}",
+            "Runcode()"
         ].join("\n")
         :""
     }
